@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iBica - AI Construction</title>
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="277-2779351_digital-brain-icon-brain-digital-icone-png.png" alt="iBica logo" />
+            <span>iBica</span>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="content">
+            <h1>Welcome to <span>iBica</span></h1>
+            <p>AI powered construction company that builds your dreams into reality.</p>
+            <div class="buttons">
+                <a href="#" class="btn primary">Learn More</a>
+                <a href="#" class="btn secondary">Start Chatting</a>
+            </div>
+        </div>
+        <div class="bg-animation"></div>
+    </section>
+    <script>
+        // دالة للكتابة المتحركة
+        function typeWriter(element, text, speed = 100, callback = null) {
+            let index = 0;
+            element.textContent = ""; // نبدأ بسطر فاضي
+
+            function write() {
+                if (index < text.length) {
+                    element.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(write, speed);
+                } else if (callback) {
+                    callback(); // لما تخلص، ينفذ اللي بعده
+                }
+            }
+
+            write();
+        }
+
+        window.addEventListener("load", () => {
+            const title = document.getElementById("typewriter-title");
+            const subtitle = document.getElementById("typewriter-subtitle");
+
+            const titleText = "Welcome to iBica";
+            const subtitleText = "AI powered construction company that builds your dreams into reality.";
+
+            // نكتب العنوان الأول، وبعده نكتب الجملة التانية
+            typeWriter(title, titleText, 100, () => {
+                setTimeout(() => {
+                    typeWriter(subtitle, subtitleText, 50);
+                }, 300);
+            });
+        });
+    </script>
+</body>
+
+</html>
